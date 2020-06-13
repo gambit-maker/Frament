@@ -24,6 +24,7 @@ import vn.edu.ntu.model.Product;
  */
 public class ProductFragment extends Fragment {
 
+    IController cartController;
     public ProductFragment() {
         // Required empty public constructor
     }
@@ -41,6 +42,7 @@ public class ProductFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         final EditText edtName, edtPrice, edtDesc;
         Button btnThem, btnClear, btnSave, btnRead;
+        cartController = ((MainActivity)getActivity()).cartController;
 
         edtName = view.findViewById(R.id.edtName);
         edtPrice = view.findViewById(R.id.edtPrice);
@@ -93,12 +95,12 @@ public class ProductFragment extends Fragment {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                IController controller = (IController) getActivity().getApplication();
-
+//                IController controller = (IController) getActivity().getApplication();
+                cartController = ((MainActivity)getActivity()).cartController;
                 Product p = new Product(edtName.getText().toString()
                 ,new Integer(edtPrice.getText().toString())
                 ,edtDesc.getText().toString());
-                controller.listProduct().add(p);
+                cartController.addProduct(p);
                 Toast.makeText(getActivity(), "Đã thêm", Toast.LENGTH_SHORT).show();
             }
         });

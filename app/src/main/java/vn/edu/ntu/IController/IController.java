@@ -9,4 +9,5 @@ public interface IController {
     public ArrayList<Product> shoppingList();
     public boolean check(Product p);
     public void clearShoppingCart();
+    public  void addProduct(Product p);
 }

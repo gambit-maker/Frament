@@ -39,8 +39,14 @@ public class Controller extends Application implements IController {
         }
     }
 
+
     @Override
     public void clearShoppingCart() {
         shoppingList.clear();
+    }
+
+    @Override
+    public void addProduct(Product p) {
+        listProduct.add(p);
     }
 }

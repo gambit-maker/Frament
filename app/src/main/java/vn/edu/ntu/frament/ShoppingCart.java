@@ -55,8 +55,10 @@ public class ShoppingCart extends Fragment {
     }
 
     private void ViewCartInfo() {
-        IController controller = (IController) getActivity().getApplication();
+//        IController controller = (IController) getActivity().getApplication();
+        IController controller = ((MainActivity)getActivity()).cartController;
         ArrayList<Product> listProduct = controller.shoppingList();
+
         StringBuilder builder = new StringBuilder();
         for (Product p:listProduct){
             builder.append(p.getName()+"\t\t"+p.getPrice()+" VND\n");

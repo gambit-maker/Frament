@@ -13,9 +13,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import vn.edu.ntu.IController.CartControllerDB;
+import vn.edu.ntu.IController.IController;
+
 public class MainActivity extends AppCompatActivity {
 
     NavController controller;
+    IController cartController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
+        cartController = new CartControllerDB(this);
     }
 
     @Override

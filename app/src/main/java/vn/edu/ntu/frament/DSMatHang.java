@@ -53,7 +53,8 @@ public class DSMatHang extends Fragment {
         fab = view.findViewById(R.id.fab);
 
         // Inflate the layout for this fragment
-        iController = (IController) getActivity().getApplication();
+//        iController = (IController) getActivity().getApplication();
+        iController = ((MainActivity)getActivity()).cartController;
         listproduct = iController.listProduct();
         productAdapter = new ProductAdapter(listproduct);
         rvListMH.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -83,7 +84,7 @@ public class DSMatHang extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        iController = ((MainActivity)getActivity()).cartController;
         controller = NavHostFragment.findNavController(DSMatHang.this);
         ((MainActivity)getActivity()).controller = controller;
 
@@ -125,7 +126,8 @@ public class DSMatHang extends Fragment {
 
         @Override
         public void onClick(View v) {
-            iController = (IController) getActivity().getApplication();
+//            iController = (IController) getActivity().getApplication();
+            iController = ((MainActivity)getActivity()).cartController;
             if (iController.check(p)){
                 Toast.makeText(getActivity(), "Đã thêm " + p.getName() +" vào giỏ", Toast.LENGTH_SHORT).show();
             }
