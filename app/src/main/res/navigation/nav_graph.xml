@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/DSMatHang">
+    <fragment
+        android:id="@+id/confirm"
+        android:name="vn.edu.ntu.frament.Confirm"
+        android:label="fragment_confirm"
+        tools:layout="@layout/fragment_confirm" >
+        <action
+            android:id="@+id/action_confirm_to_DSMatHang"
+            app:destination="@id/DSMatHang" />
+    </fragment>
+    <fragment
+        android:id="@+id/DSMatHang"
+        android:name="vn.edu.ntu.frament.DSMatHang"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" >
+        <action
+            android:id="@+id/action_DSMatHang_to_shoppingCart"
+            app:destination="@id/shoppingCart" />
+        <action
+            android:id="@+id/action_DSMatHang_to_product"
+            app:destination="@id/product"
+            app:popUpTo="@id/DSMatHang"/>
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingCart"
+        android:name="vn.edu.ntu.frament.ShoppingCart"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_shoppingCart_to_confirm"
+            app:destination="@id/confirm"
+            app:popUpTo="@id/shoppingCart"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/product"
+        android:name="vn.edu.ntu.frament.ProductFragment"
+        android:label="fragment_product"
+        tools:layout="@layout/fragment_product" >
+        <action
+            android:id="@+id/action_product_to_DSMatHang"
+            app:destination="@id/DSMatHang" />
+    </fragment>
+</navigation>
